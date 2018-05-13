@@ -1,0 +1,8 @@
+org\example\demo\QueueLogService.class
+org\example\demo\package-info.class
+org\example\demo\Enqueuelog.class
+org\example\demo\EnqueuelogResponse.class
+org\example\demo\QueueLogSystemServices.class
+co\com\javeriana\soap\integracion\QueueLogService\SoapService.class
+org\example\demo\ObjectFactory.class
+co\com\javeriana\soap\integracion\util\Utils.class

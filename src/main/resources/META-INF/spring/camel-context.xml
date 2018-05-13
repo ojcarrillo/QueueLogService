@@ -1,0 +1,50 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-2.8.3.xsd">
+
+	<context:component-scan
+		base-package="co.com.javeriana.soap.integracion" />
+
+	<cxf:cxfEndpoint id="queuelogSoap"
+		address="/services/queuelog" endpointName="a:QueueLogServicesEndpoint"
+		serviceName="a:QueueLogService" wsdlURL="wsdl/queuelog.wsdl"
+		serviceClass="org.example.demo.QueueLogSystemServices"
+		xmlns:a="http://www.example.org/demo/">
+		<cxf:properties>
+			<entry key="dataFormat" value="PAYLOAD" />
+		</cxf:properties>
+	</cxf:cxfEndpoint>
+
+	<camel:camelContext
+		xmlns="http://camel.apache.org/schema/spring">
+	
+		<camel:dataFormats>
+			<camel:jaxb id="enqueuePayload" contextPath="org.example.demo"
+				partClass="org.example.demo.Enqueuelog" />			
+		</camel:dataFormats>
+		
+		<camel:route id="soap-integration">
+			<camel:from uri="cxf:bean:queuelogSoap" />
+			<camel:choice>
+				<camel:when>
+					<camel:simple>${in.header.operationName} == 'enqueuelog'</camel:simple>
+					<camel:log message="LA OPERACION ES UN CANCELAR RESERVA" />
+					<camel:unmarshal ref="enqueuePayload" />
+					<camel:to uri="bean:soapService?method=enqueueLogMessage" />
+					<camel:to uri="file:/data/log?fileExist=Append&amp;fileName=logbpel.txt" />
+					<camel:to uri="bean:soapService?method=enqueueLogMessageResponse" />
+				</camel:when>				
+			</camel:choice>
+		</camel:route>
+
+	</camel:camelContext>
+
+</beans>
