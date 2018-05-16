@@ -1,8 +1,9 @@
 
-package org.example.demo;
+package org.queuelog.demo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
@@ -19,10 +20,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="motivoEstado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="fechaRespuesta" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="codigoEstado" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="estado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="motivoEstado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="fechaRespuesta" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="codigoEstado" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -41,10 +42,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlRootElement(name = "enqueuelogResponse")
 public class EnqueuelogResponse {
 
+    @XmlElement(required = true)
     protected String estado;
+    @XmlElement(required = true)
     protected String motivoEstado;
+    @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fechaRespuesta;
+    @XmlElement(required = true)
     protected String codigoEstado;
 
     /**

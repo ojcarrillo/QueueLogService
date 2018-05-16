@@ -1,8 +1,8 @@
 package co.com.javeriana.soap.integracion.QueueLogService;
 
 import org.apache.camel.Exchange;
-import org.example.demo.Enqueuelog;
-import org.example.demo.EnqueuelogResponse;
+import org.queuelog.demo.Enqueuelog;
+import org.queuelog.demo.EnqueuelogResponse;
 import org.springframework.stereotype.Component;
 
 import co.com.javeriana.soap.integracion.util.Utils;

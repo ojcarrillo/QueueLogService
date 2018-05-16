@@ -1,8 +1,9 @@
 
-package org.example.demo;
+package org.queuelog.demo;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -17,10 +18,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="nivel" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="fechaEvento" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="clase" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="observacion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="nivel" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="fechaEvento" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="clase" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="observacion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -39,9 +40,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "enqueuelog")
 public class Enqueuelog {
 
+    @XmlElement(required = true)
     protected String nivel;
+    @XmlElement(required = true)
     protected String fechaEvento;
+    @XmlElement(required = true)
     protected String clase;
+    @XmlElement(required = true)
     protected String observacion;
 
     /**

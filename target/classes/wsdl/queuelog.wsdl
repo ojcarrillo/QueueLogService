@@ -1,31 +1,31 @@
 <wsdl:definitions
 	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:tns="http://www.example.org/demo/"
+	xmlns:tns="http://www.queuelog.org/demo/"
 	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
 	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="queuelogService"
-	targetNamespace="http://www.example.org/demo/">
+	targetNamespace="http://www.queuelog.org/demo/">
 	<wsdl:types>
 		<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-			targetNamespace="http://www.example.org/demo/"
+			targetNamespace="http://www.queuelog.org/demo/"
 			elementFormDefault="unqualified" version="1.0">
 			<xsd:element name="enqueuelog">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element minOccurs="0" name="nivel" type="xsd:string" />
-						<xsd:element minOccurs="0" name="fechaEvento" type="xsd:string" />
-						<xsd:element minOccurs="0" name="clase" type="xsd:string" />
-						<xsd:element minOccurs="0" name="observacion" type="xsd:string" />
+						<xsd:element minOccurs="1" name="nivel" type="xsd:string" />
+						<xsd:element minOccurs="1" name="fechaEvento" type="xsd:string" />
+						<xsd:element minOccurs="1" name="clase" type="xsd:string" />
+						<xsd:element minOccurs="1" name="observacion" type="xsd:string" />
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
 			<xsd:element name="enqueuelogResponse">
 				<xsd:complexType>
 					<xsd:sequence>
-						<xsd:element minOccurs="0" name="estado" type="xsd:string" />
-						<xsd:element minOccurs="0" name="motivoEstado" type="xsd:string" />
-						<xsd:element minOccurs="0" name="fechaRespuesta" type="xsd:dateTime" />
-						<xsd:element minOccurs="0" name="codigoEstado" type="xsd:string" />
+						<xsd:element minOccurs="1" name="estado" type="xsd:string" />
+						<xsd:element minOccurs="1" name="motivoEstado" type="xsd:string" />
+						<xsd:element minOccurs="1" name="fechaRespuesta" type="xsd:dateTime" />
+						<xsd:element minOccurs="1" name="codigoEstado" type="xsd:string" />
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>			

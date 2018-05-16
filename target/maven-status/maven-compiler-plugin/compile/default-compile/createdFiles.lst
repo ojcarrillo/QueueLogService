@@ -1,8 +1,8 @@
-org\example\demo\QueueLogService.class
-org\example\demo\package-info.class
-org\example\demo\Enqueuelog.class
-org\example\demo\EnqueuelogResponse.class
-org\example\demo\QueueLogSystemServices.class
+org\queuelog\demo\QueueLogSystemServices.class
+org\queuelog\demo\QueueLogService.class
+org\queuelog\demo\package-info.class
+org\queuelog\demo\Enqueuelog.class
 co\com\javeriana\soap\integracion\QueueLogService\SoapService.class
-org\example\demo\ObjectFactory.class
+org\queuelog\demo\EnqueuelogResponse.class
 co\com\javeriana\soap\integracion\util\Utils.class
+org\queuelog\demo\ObjectFactory.class
